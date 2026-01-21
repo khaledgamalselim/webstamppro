@@ -296,6 +296,123 @@
         .business { background-color: #9b59b6; }
         .premium { background-color: var(--accent); }
         
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 0;
+            background-color: #f8fafc;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .portfolio-frame {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            background: #f5f7fa;
+        }
+        
+        .portfolio-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-frame iframe {
+            transform: scale(1.02);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(44, 62, 80, 0.95), rgba(44, 62, 80, 0.7));
+            color: white;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: white;
+        }
+        
+        .portfolio-overlay p {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        .portfolio-btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+        
+        .portfolio-btn:hover {
+            background-color: #2980b9;
+            transform: translateX(5px);
+        }
+        
+        .portfolio-label {
+            padding: 1.2rem;
+        }
+        
+        .portfolio-category {
+            display: inline-block;
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        
+        .portfolio-label h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
         /* Contact Section */
         .contact {
             padding: 4rem 0;
@@ -464,6 +581,10 @@
             .packages-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (max-width: 768px) {
@@ -480,6 +601,12 @@
             }
             
             .packages-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 3rem auto;
+            }
+            
+            .portfolio-grid {
                 grid-template-columns: 1fr;
                 max-width: 400px;
                 margin: 3rem auto;
@@ -511,6 +638,89 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        /* Tech Stack Section */
+        .tech-stack {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .tech-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Features Enhancement */
+        .features {
+            padding: 5rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1.5rem;
         }
     </style>
 </head>
@@ -536,6 +746,8 @@
                 <ul>
                     <li><a href="#home">الرئيسية</a></li>
                     <li><a href="#packages">الباقات</a></li>
+                    <li><a href="#portfolio">معرض الأعمال</a></li>
+                    <li><a href="#tech">لغات البرمجة</a></li>
                     <li><a href="#contact">اتصل بنا</a></li>
                 </ul>
             </nav>
@@ -637,6 +849,253 @@
                         </ul>
                     </div>
                     <a href="#contact" class="package-btn">اختر هذه الباقة</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>معرض أعمالنا</h2>
+                <p>تصفح بعض المواقع التي قمنا بتطويرها لعملائنا في مختلف المجالات</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- موقع 1: مكتب حفلات -->
+                <div class="portfolio-item">
+                    <div class="portfolio-frame">
+                        <iframe 
+                            src="https://khaledgamalselim.github.io/KIDSSHOW/" 
+                            title="مكتب حفلات أطفال"
+                            loading="lazy"
+                            scrolling="no">
+                        </iframe>
+                        <div class="portfolio-overlay">
+                            <h3>مكتب حفلات أطفال</h3>
+                            <p>موقع متكامل لعرض خدمات حفلات الأطفال والتنسيق مع العائلات</p>
+                            <a href="https://khaledgamalselim.github.io/KIDSSHOW/" target="_blank" class="portfolio-btn">
+                                زيارة الموقع <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-label">
+                        <span class="portfolio-category">ترفيه</span>
+                        <h4>مكتب حفلات KidsShow</h4>
+                    </div>
+                </div>
+                
+                <!-- موقع 2: مركز صيانة -->
+                <div class="portfolio-item">
+                    <div class="portfolio-frame">
+                        <iframe 
+                            src="https://khaledgamalselim.github.io/elsaher/" 
+                            title="مركز صيانة إلكترونية"
+                            loading="lazy"
+                            scrolling="no">
+                        </iframe>
+                        <div class="portfolio-overlay">
+                            <h3>مركز الصيانة السحري</h3>
+                            <p>موقع متخصص في صيانة الشاشات والريسيفرات وبيع الأجهزة الإلكترونية</p>
+                            <a href="https://khaledgamalselim.github.io/elsaher/" target="_blank" class="portfolio-btn">
+                                زيارة الموقع <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-label">
+                        <span class="portfolio-category">إلكترونيات</span>
+                        <h4>مركز الصيانة السحري</h4>
+                    </div>
+                </div>
+                
+                <!-- موقع 3: خدمات تنظيف -->
+                <div class="portfolio-item">
+                    <div class="portfolio-frame">
+                        <iframe 
+                            src="https://khaledgamalselim.github.io/inservice/" 
+                            title="خدمات تنظيف"
+                            loading="lazy"
+                            scrolling="no">
+                        </iframe>
+                        <div class="portfolio-overlay">
+                            <h3>شركة التنظيف المثالي</h3>
+                            <p>خدمات تنظيف احترافية للمنازل، الفلل، المكاتب والشركات</p>
+                            <a href="https://khaledgamalselim.github.io/inservice/" target="_blank" class="portfolio-btn">
+                                زيارة الموقع <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-label">
+                        <span class="portfolio-category">خدمات</span>
+                        <h4>InService للتنظيف</h4>
+                    </div>
+                </div>
+                
+                <!-- موقع 4: مقهى -->
+                <div class="portfolio-item">
+                    <div class="portfolio-frame">
+                        <iframe 
+                            src="https://khaledgamalselim.github.io/cafe/" 
+                            title="مقهى وروستو"
+                            loading="lazy"
+                            scrolling="no">
+                        </iframe>
+                        <div class="portfolio-overlay">
+                            <h3>مقهى القهوة المميزة</h3>
+                            <p>منيو رقمي متكامل لعرض مشروبات القهوة والوجبات الخفيفة</p>
+                            <a href="https://khaledgamalselim.github.io/cafe/" target="_blank" class="portfolio-btn">
+                                زيارة الموقع <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-label">
+                        <span class="portfolio-category">مأكولات</span>
+                        <h4>روستو القهوة المميزة</h4>
+                    </div>
+                </div>
+                
+                <!-- موقع 5: مطعم -->
+                <div class="portfolio-item">
+                    <div class="portfolio-frame">
+                        <iframe 
+                            src="https://khaledgamalselim.github.io/Restaurant/" 
+                            title="مطعم وحجز طاولات"
+                            loading="lazy"
+                            scrolling="no">
+                        </iframe>
+                        <div class="portfolio-overlay">
+                            <h3>مطعم الذواقة</h3>
+                            <p>موقع لحجز الطاولات وعرض قوائم الطعام في مطعم راقي</p>
+                            <a href="https://khaledgamalselim.github.io/Restaurant/" target="_blank" class="portfolio-btn">
+                                زيارة الموقع <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-label">
+                        <span class="portfolio-category">مطاعم</span>
+                        <h4>مطعم الذواقة الفاخر</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack" id="tech">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">لغات وتقنيات البرمجة المستخدمة</h2>
+                <p style="color: rgba(255, 255, 255, 0.9);">نستخدم أحدث التقنيات وأفضل لغات البرمجة لضمان جودة وتفوق مواقعنا</p>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-html5" style="color: #e34f26;"></i>
+                    </div>
+                    <h3>HTML5</h3>
+                    <p>أحدث إصدار لغة ترميز المحتوى الهيكلي</p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-css3-alt" style="color: #1572b6;"></i>
+                    </div>
+                    <h3>CSS3</h3>
+                    <p>تصميم وتنسيق متقدم مع تأثيرات حديثة</p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-js" style="color: #f7df1e;"></i>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>تطوير واجهات تفاعلية وسلوك ديناميكي</p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-bootstrap" style="color: #7952b3;"></i>
+                    </div>
+                    <h3>Bootstrap</h3>
+                    <p>تصميم متجاوب سريع وجاهز</p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-react" style="color: #61dafb;"></i>
+                    </div>
+                    <h3>React.js</h3>
+                    <p>مكتبة جافاسكريبت لتطبيقات الويب التفاعلية</p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-node-js" style="color: #339933;"></i>
+                    </div>
+                    <h3>Node.js</h3>
+                    <p>بيئة تنفيذ لجافاسكريبت على السيرفر</p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-database" style="color: #4479a1;"></i>
+                    </div>
+                    <h3>Databases</h3>
+                    <p>MongoDB, MySQL, Firebase</p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-server" style="color: #00d8ff;"></i>
+                    </div>
+                    <h3>APIs</h3>
+                    <p>تطوير ودمج واجهات برمجية متقدمة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>مميزات إضافية</h2>
+                <p>نوفر مجموعة من المميزات التي تميز خدماتنا عن غيرها</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>تصميم متجاوب</h3>
+                    <p>يعمل على جميع الأجهزة والشاشات</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>سرعة فائقة</h3>
+                    <p>تحميل سريع وتحسين SEO</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>حماية وأمان</h3>
+                    <p>شهادات SSL وحماية متقدمة</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم فني 24/7</h3>
+                    <p>دعم مستمر عبر الواتساب والبريد</p>
                 </div>
             </div>
         </div>
@@ -751,6 +1210,9 @@
                 <a href="#" class="social-icon">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </footer>
@@ -774,12 +1236,13 @@
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const package = document.getElementById('package').value;
+            const message = document.getElementById('message').value;
             
             // Create WhatsApp message
-            const message = `مرحباً، أنا ${name}، أرغب في الحصول على باقة ${package}.\nرقم هاتفي: ${phone}`;
+            const whatsappMessage = `مرحباً، أنا ${name}، أرغب في الحصول على باقة ${package}.\nرقم هاتفي: ${phone}\n${message ? `ملاحظاتي: ${message}` : ''}`;
             
             // Encode message for URL
-            const encodedMessage = encodeURIComponent(message);
+            const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // Create WhatsApp URL
             const whatsappURL = `https://wa.me/201092888626?text=${encodedMessage}`;
@@ -825,6 +1288,57 @@
                 navUl.style.display = 'none';
             }
         });
+        
+        // Lazy load iframes for better performance
+        window.addEventListener('load', function() {
+            const iframes = document.querySelectorAll('.portfolio-frame iframe');
+            
+            // Set a timeout to ensure page is fully loaded
+            setTimeout(() => {
+                iframes.forEach(iframe => {
+                    // Reload iframe to ensure content loads properly
+                    const src = iframe.getAttribute('src');
+                    iframe.setAttribute('src', src);
+                });
+            }, 1500);
+        });
+        
+        // Add active class to navigation links on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if(scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Add style for active nav link
+        const style = document.createElement('style');
+        style.textContent = `
+            nav a.active {
+                color: var(--secondary) !important;
+                font-weight: 700;
+            }
+            nav a.active::after {
+                width: 100% !important;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
