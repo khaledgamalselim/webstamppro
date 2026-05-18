@@ -790,7 +790,30 @@
             </div>
             
             <div class="portfolio-grid">
-                <!-- موقع 1: مكتب حفلات -->
+                <!-- موقع 1: PRO GYM (جديد) -->
+                <div class="portfolio-item">
+                    <div class="portfolio-frame">
+                        <iframe 
+                            src="https://khaledgamalselim.github.io/PROGYM/" 
+                            title="PRO GYM - مصنع الأبطال"
+                            loading="lazy"
+                            scrolling="no">
+                        </iframe>
+                        <div class="portfolio-overlay">
+                            <h3>PRO GYM - مصنع الأبطال</h3>
+                            <p>صالة رياضية رجالية متكاملة بأحدث الأجهزة وأقوى الكباتن، باقات اشتراك مناسبة للجميع</p>
+                            <a href="https://khaledgamalselim.github.io/PROGYM/" target="_blank" class="portfolio-btn">
+                                زيارة الموقع <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-label">
+                        <span class="portfolio-category">رياضة</span>
+                        <h4>PRO GYM - مصنع الأبطال</h4>
+                    </div>
+                </div>
+                
+                <!-- موقع 2: مكتب حفلات -->
                 <div class="portfolio-item">
                     <div class="portfolio-frame">
                         <iframe 
@@ -813,7 +836,7 @@
                     </div>
                 </div>
                 
-                <!-- موقع 2: مركز صيانة -->
+                <!-- موقع 3: مركز صيانة -->
                 <div class="portfolio-item">
                     <div class="portfolio-frame">
                         <iframe 
@@ -836,7 +859,7 @@
                     </div>
                 </div>
                 
-                <!-- موقع 3: خدمات تنظيف -->
+                <!-- موقع 4: خدمات تنظيف -->
                 <div class="portfolio-item">
                     <div class="portfolio-frame">
                         <iframe 
@@ -859,7 +882,7 @@
                     </div>
                 </div>
                 
-                <!-- موقع 4: مقهى -->
+                <!-- موقع 5: مقهى -->
                 <div class="portfolio-item">
                     <div class="portfolio-frame">
                         <iframe 
@@ -877,12 +900,12 @@
                         </div>
                     </div>
                     <div class="portfolio-label">
-                        <span class="portfolio-category">مأكولات</span>
+                        <span class="portfolio-category"> كافية </span>
                         <h4>روستو القهوة المميزة</h4>
                     </div>
                 </div>
                 
-                <!-- موقع 5: مطعم -->
+                <!-- موقع 6: مطعم -->
                 <div class="portfolio-item">
                     <div class="portfolio-frame">
                         <iframe 
@@ -963,7 +986,6 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <!-- IMPORTANT: تم تعديل الفورم هنا ليرسل بياناته إلى الواتساب -->
                     <form id="whatsappForm">
                         <div class="form-group">
                             <label>الاسم بالكامل</label>
@@ -1017,18 +1039,16 @@
 
         // WhatsApp Form Submission Logic
         const form = document.getElementById('whatsappForm');
-        const phoneNumber = '201092888626'; // رقم واتساب المستهدف (بدون علامة + أو صفر في البداية للرقم الدولي)
+        const phoneNumber = '201092888626';
 
         if(form) {
             form.addEventListener('submit', function(event) {
-                event.preventDefault(); // منع إعادة تحميل الصفحة
+                event.preventDefault();
 
-                // 1. جلب القيم من الحقول
                 const name = document.getElementById('fullName').value.trim();
                 const email = document.getElementById('email').value.trim();
                 const messageDetail = document.getElementById('message').value.trim();
 
-                // 2. التحقق من صحة الحقول
                 if(!name || !email || !messageDetail) {
                     alert('يرجى ملء جميع الحقول قبل الإرسال.');
                     return;
@@ -1039,24 +1059,15 @@
                     return;
                 }
 
-                // 3. بناء نص الرسالة
                 let whatsappMessage = `📢 *رسالة جديدة من موقع Web Stamp Pro* 📢%0A`;
                 whatsappMessage += `%0A👤 *الاسم:* ${name}%0A`;
                 whatsappMessage += `📧 *البريد الإلكتروني:* ${email}%0A`;
                 whatsappMessage += `%0A📝 *تفاصيل الطلب:* %0A${messageDetail}%0A`;
                 whatsappMessage += `%0A⏱️ *تم الإرسال:* ${new Date().toLocaleString('ar-EG')}`;
 
-                // 4. بناء رابط واتساب
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-
-                // 5. فتح الرابط في تبويب جديد (أو تحويل المستخدم إليه)
                 window.open(whatsappUrl, '_blank');
-                
-                // 6. (اختياري) تنبيه للمستخدم بأنه سيتم تحويله للواتساب
                 alert('سيتم توجيهك إلى تطبيق واتساب لإتمام الإرسال. يرجى الضغط على "إرسال" هناك.');
-                
-                // يمكنك تفريغ الحقول إذا أردت
-                // form.reset(); 
             });
         }
     </script>
