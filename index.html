@@ -50,6 +50,7 @@
         }
         
         .header-content {
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -237,14 +238,19 @@
         }
         
         .package-price {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.6rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 5px 10px;
+            border-radius: 6px;
+            display: inline-block;
         }
         
         .package-period {
             font-size: 0.9rem;
             opacity: 0.9;
+            margin-top: 5px;
         }
         
         .package-features {
@@ -389,7 +395,7 @@
         
         .portfolio-btn:hover {
             background-color: #2980b9;
-            transform: translateX(5px);
+            transform: translateX(-5px);
         }
         
         .portfolio-label {
@@ -572,80 +578,6 @@
             transform: translateY(-3px);
         }
         
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 2.3rem;
-            }
-            
-            .packages-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .packages-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin: 3rem auto;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin: 3rem auto;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .hero {
-                padding: 3rem 0;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-            }
-        }
-        
         /* Tech Stack Section */
         .tech-stack {
             padding: 4rem 0;
@@ -683,44 +615,40 @@
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
-        
-        /* Features Enhancement */
-        .features {
-            padding: 5rem 0;
+
+        /* Responsive Design Updates */
+        @media (max-width: 992px) {
+            .hero h2 { font-size: 2.3rem; }
+            .packages-grid, .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
         }
         
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 1.5rem;
+                box-shadow: var(--shadow);
+                gap: 1rem;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            .mobile-menu-btn { display: block; }
+            .hero h2 { font-size: 2rem; }
+            .packages-grid, .portfolio-grid, .contact-content { grid-template-columns: 1fr; max-width: 400px; margin: 3rem auto; }
         }
         
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--secondary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin: 0 auto 1.5rem;
+        @media (max-width: 576px) {
+            .header-content { flex-direction: column; gap: 1rem; }
+            .hero { padding: 3rem 0; }
+            .hero h2 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+            .section-title h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -768,7 +696,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>باقاتنا المميزة</h2>
-                <p>اختر الباقة التي تناسب احتياجات عملك، من البدايات البسيطة إلى الحلول المتكاملة للمشاريع الكبيرة</p>
+                <p>اختر الباقة التي تناسب احتياجات عملك، بأسعار واضحة ومحددة تضمن لك أفضل قيمة مقابل الاستثمار</p>
             </div>
             
             <div class="packages-grid">
@@ -776,7 +704,7 @@
                 <div class="package-card">
                     <div class="package-header start">
                         <div class="package-name">START 🟢</div>
-                        <div class="package-price">900 – 1,200 جنيه / شهر</div>
+                        <div class="package-price">900 جنيه / شهر</div>
                         <div class="package-period">باقة مبتدئة مثالية للعروض البسيطة</div>
                     </div>
                     <div class="package-features">
@@ -785,7 +713,6 @@
                             <li><i class="fas fa-check"></i> رابط + QR Code للموقع</li>
                             <li><i class="fas fa-check"></i> 1-2 تعديلات كل شهر</li>
                             <li><i class="fas fa-check"></i> تصميم متجاوب مع جميع الأجهزة</li>
-                            <li><i class="fas fa-check"></i> استضافة مجانية لمدة شهر</li>
                         </ul>
                     </div>
                     <a href="#contact" class="package-btn">اختر هذه الباقة</a>
@@ -795,7 +722,7 @@
                 <div class="package-card">
                     <div class="package-header pro">
                         <div class="package-name">PRO 🔵</div>
-                        <div class="package-price">1,800 – 2,200 جنيه / شهر</div>
+                        <div class="package-price">1,800 جنيه / شهر</div>
                         <div class="package-period">باقة متوسطة للمشاريع الناشئة</div>
                     </div>
                     <div class="package-features">
@@ -815,7 +742,7 @@
                 <div class="package-card">
                     <div class="package-header business">
                         <div class="package-name">BUSINESS 🔴</div>
-                        <div class="package-price">3,000 – 3,500 جنيه / شهر</div>
+                        <div class="package-price">3,000 جنيه / شهر</div>
                         <div class="package-period">باقة احترافية للشركات الناشئة</div>
                     </div>
                     <div class="package-features">
@@ -824,7 +751,7 @@
                             <li><i class="fas fa-check"></i> رابط + QR Code مخصص</li>
                             <li><i class="fas fa-check"></i> تعديلات غير محدودة</li>
                             <li><i class="fas fa-check"></i> تحديث محتوى، عروض، مواسم</li>
-                            <li><i class="fas fa-check"></i> مثالي للعميل الذي يعتمد على الموقع</li>
+                            <li><i class="fas fa-check"></i> مالي للعميل الذي يعتمد على الموقع</li>
                             <li><i class="fas fa-check"></i> تقارير أداء شهرية</li>
                         </ul>
                     </div>
@@ -835,7 +762,7 @@
                 <div class="package-card">
                     <div class="package-header premium">
                         <div class="package-name">PREMIUM 👑</div>
-                        <div class="package-price">4,500 – 5,500 جنيه / شهر</div>
+                        <div class="package-price">4,500 جنيه / شهر</div>
                         <div class="package-period">باقة VIP للشركات الكبرى</div>
                     </div>
                     <div class="package-features">
@@ -986,116 +913,23 @@
         <div class="container">
             <div class="section-title">
                 <h2 style="color: white;">لغات وتقنيات البرمجة المستخدمة</h2>
-                <p style="color: rgba(255, 255, 255, 0.9);">نستخدم أحدث التقنيات وأفضل لغات البرمجة لضمان جودة وتفوق مواقعنا</p>
+                <p style="color: rgba(255, 255, 255, 0.9);">نستخدم أحدث التقنيات لضمان السرعة، الأمان، والتجاوب الكامل مع كافة الشاشات.</p>
             </div>
-            
             <div class="tech-grid">
                 <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="fab fa-html5" style="color: #e34f26;"></i>
-                    </div>
-                    <h3>HTML5</h3>
-                    <p>أحدث إصدار لغة ترميز المحتوى الهيكلي</p>
+                    <div class="tech-icon"><i class="fab fa-html5"></i></div>
+                    <h3>HTML5 & CSS3</h3>
+                    <p>لبناء واجهات ويب متناسقة ومعايير سيو قوية.</p>
                 </div>
-                
                 <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="fab fa-css3-alt" style="color: #1572b6;"></i>
-                    </div>
-                    <h3>CSS3</h3>
-                    <p>تصميم وتنسيق متقدم مع تأثيرات حديثة</p>
-                </div>
-                
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="fab fa-js" style="color: #f7df1e;"></i>
-                    </div>
+                    <div class="tech-icon"><i class="fab fa-js"></i></div>
                     <h3>JavaScript</h3>
-                    <p>تطوير واجهات تفاعلية وسلوك ديناميكي</p>
+                    <p>لإضافة عناصر تفاعلية وسلاسة كاملة في التصفح.</p>
                 </div>
-                
                 <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="fab fa-bootstrap" style="color: #7952b3;"></i>
-                    </div>
-                    <h3>Bootstrap</h3>
-                    <p>تصميم متجاوب سريع وجاهز</p>
-                </div>
-                
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="fab fa-react" style="color: #61dafb;"></i>
-                    </div>
-                    <h3>React.js</h3>
-                    <p>مكتبة جافاسكريبت لتطبيقات الويب التفاعلية</p>
-                </div>
-                
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="fab fa-node-js" style="color: #339933;"></i>
-                    </div>
-                    <h3>Node.js</h3>
-                    <p>بيئة تنفيذ لجافاسكريبت على السيرفر</p>
-                </div>
-                
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="fas fa-database" style="color: #4479a1;"></i>
-                    </div>
-                    <h3>Databases</h3>
-                    <p>MongoDB, MySQL, Firebase</p>
-                </div>
-                
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="fas fa-server" style="color: #00d8ff;"></i>
-                    </div>
-                    <h3>APIs</h3>
-                    <p>تطوير ودمج واجهات برمجية متقدمة</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>مميزات إضافية</h2>
-                <p>نوفر مجموعة من المميزات التي تميز خدماتنا عن غيرها</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>تصميم متجاوب</h3>
-                    <p>يعمل على جميع الأجهزة والشاشات</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>سرعة فائقة</h3>
-                    <p>تحميل سريع وتحسين SEO</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>حماية وأمان</h3>
-                    <p>شهادات SSL وحماية متقدمة</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>دعم فني 24/7</h3>
-                    <p>دعم مستمر عبر الواتساب والبريد</p>
+                    <div class="tech-icon"><i class="fab fa-bootstrap"></i></div>
+                    <h3>Responsive Design</h3>
+                    <p>ضمان عمل الموقع بكفاءة على الهواتف والأجهزة اللوحية.</p>
                 </div>
             </div>
         </div>
@@ -1105,86 +939,43 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>تواصل معنا</h2>
-                <p>اختر الباقة المناسبة لك واتصل بنا الآن للحصول على موقعك الاحترافي</p>
+                <h2>اتصل بنا</h2>
+                <p>تواصل معنا اليوم لبدء مشروعك أو للاستفسار عن الباقات المختلفة</p>
             </div>
-            
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>معلومات التواصل</h3>
+                    <h3>معلومات الاتصال</h3>
                     <div class="contact-methods">
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-text">
+                                <h4>الهاتف مباشر</h4>
+                                <a href="tel:+201092888626">01092888626</a>
                             </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
                             <div class="contact-text">
                                 <h4>واتساب</h4>
-                                <a href="https://wa.me/201092888626" target="_blank">01092888626</a>
+                                <a href="https://wa.me/201092888626" target="_blank">راسلنا مباشرة عبر واتساب</a>
                             </div>
                         </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>هاتف</h4>
-                                <a href="tel:01092888626">01092888626</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>البريد الإلكتروني</h4>
-                                <a href="mailto:ENG.KHALED.GAMAL.S@GMAIL.COM">ENG.KHALED.GAMAL.S@GMAIL.COM</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 2rem;">
-                        <h4>ساعات العمل</h4>
-                        <p>الأحد إلى الخميس: 9 صباحاً - 10 مساءً</p>
-                        <p>الجمعة والسبت: استجابة عبر الواتساب فقط</p>
                     </div>
                 </div>
-                
                 <div class="contact-form">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--primary);">اطلب خدمتك الآن</h3>
-                    <form id="requestForm">
+                    <form action="#">
                         <div class="form-group">
-                            <label for="name">الاسم بالكامل</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <label>الاسم بالكامل</label>
+                            <input type="text" class="form-control" required placeholder="أدخل اسمك الكريم">
                         </div>
-                        
                         <div class="form-group">
-                            <label for="phone">رقم الهاتف</label>
-                            <input type="tel" id="phone" class="form-control" required>
+                            <label>البريد الإلكتروني</label>
+                            <input type="email" class="form-control" required placeholder="name@example.com">
                         </div>
-                        
                         <div class="form-group">
-                            <label for="email">البريد الإلكتروني</label>
-                            <input type="email" id="email" class="form-control">
+                            <label>تفاصيل طلبك</label>
+                            <textarea class="form-control" rows="4" required placeholder="اكتب تفاصيل الباقة أو استفسارك هنا..."></textarea>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="package">الباقة المطلوبة</label>
-                            <select id="package" class="form-control" required>
-                                <option value="">اختر الباقة</option>
-                                <option value="START">START - 900 – 1,200 جنيه</option>
-                                <option value="PRO">PRO - 1,800 – 2,200 جنيه</option>
-                                <option value="BUSINESS">BUSINESS - 3,000 – 3,500 جنيه</option>
-                                <option value="PREMIUM">PREMIUM - 4,500 – 5,500 جنيه</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">ملاحظات إضافية</label>
-                            <textarea id="message" class="form-control" rows="4"></textarea>
-                        </div>
-                        
                         <button type="submit" class="submit-btn">إرسال الطلب</button>
                     </form>
                 </div>
@@ -1196,149 +987,30 @@
     <footer>
         <div class="container footer-content">
             <a href="#home" class="footer-logo">Web Stamp Pro</a>
-            <p class="copyright">© 2025 جميع الحقوق محفوظة لشركة Web Stamp Pro</p>
             <div class="social-links">
-                <a href="#" class="social-icon">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-github"></i>
-                </a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
             </div>
+            <p class="copyright">جميع الحقوق محفوظة &copy; 2026 لـ Web Stamp Pro</p>
         </div>
     </footer>
 
+    <!-- Mobile Menu Script -->
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navUl = document.querySelector('nav ul');
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            navUl.style.display = navUl.style.display === 'flex' ? 'none' : 'flex';
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
-        
-        // Form submission
-        const requestForm = document.getElementById('requestForm');
-        
-        requestForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const package = document.getElementById('package').value;
-            const message = document.getElementById('message').value;
-            
-            // Create WhatsApp message
-            const whatsappMessage = `مرحباً، أنا ${name}، أرغب في الحصول على باقة ${package}.\nرقم هاتفي: ${phone}\n${message ? `ملاحظاتي: ${message}` : ''}`;
-            
-            // Encode message for URL
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            
-            // Create WhatsApp URL
-            const whatsappURL = `https://wa.me/201092888626?text=${encodedMessage}`;
-            
-            // Open WhatsApp
-            window.open(whatsappURL, '_blank');
-            
-            // Reset form
-            requestForm.reset();
-            
-            // Show confirmation
-            alert('سيتم توجيهك إلى تطبيق الواتساب لإكمال الطلب. شكراً لتواصلك معنا!');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if(window.innerWidth <= 768) {
-                        navUl.style.display = 'none';
-                    }
-                }
+
+        // إغلاق القائمة عند الضغط على أي رابط
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
             });
         });
-        
-        // Adjust nav display on window resize
-        window.addEventListener('resize', function() {
-            if(window.innerWidth > 768) {
-                navUl.style.display = 'flex';
-            } else {
-                navUl.style.display = 'none';
-            }
-        });
-        
-        // Lazy load iframes for better performance
-        window.addEventListener('load', function() {
-            const iframes = document.querySelectorAll('.portfolio-frame iframe');
-            
-            // Set a timeout to ensure page is fully loaded
-            setTimeout(() => {
-                iframes.forEach(iframe => {
-                    // Reload iframe to ensure content loads properly
-                    const src = iframe.getAttribute('src');
-                    iframe.setAttribute('src', src);
-                });
-            }, 1500);
-        });
-        
-        // Add active class to navigation links on scroll
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav a');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if(scrollY >= (sectionTop - 100)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if(link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // Add style for active nav link
-        const style = document.createElement('style');
-        style.textContent = `
-            nav a.active {
-                color: var(--secondary) !important;
-                font-weight: 700;
-            }
-            nav a.active::after {
-                width: 100% !important;
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
