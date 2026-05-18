@@ -963,20 +963,21 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form action="#">
+                    <!-- IMPORTANT: تم تعديل الفورم هنا ليرسل بياناته إلى الواتساب -->
+                    <form id="whatsappForm">
                         <div class="form-group">
                             <label>الاسم بالكامل</label>
-                            <input type="text" class="form-control" required placeholder="أدخل اسمك الكريم">
+                            <input type="text" id="fullName" class="form-control" required placeholder="أدخل اسمك الكريم">
                         </div>
                         <div class="form-group">
                             <label>البريد الإلكتروني</label>
-                            <input type="email" class="form-control" required placeholder="name@example.com">
+                            <input type="email" id="email" class="form-control" required placeholder="name@example.com">
                         </div>
                         <div class="form-group">
                             <label>تفاصيل طلبك</label>
-                            <textarea class="form-control" rows="4" required placeholder="اكتب تفاصيل الباقة أو استفسارك هنا..."></textarea>
+                            <textarea id="message" class="form-control" rows="4" required placeholder="اكتب تفاصيل الباقة أو استفسارك هنا..."></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">إرسال الطلب</button>
+                        <button type="submit" class="submit-btn">إرسال الطلب عبر واتساب</button>
                     </form>
                 </div>
             </div>
@@ -996,21 +997,68 @@
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
+    <!-- Mobile Menu Script & WhatsApp Integration -->
     <script>
+        // Mobile menu logic
         const menuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('nav ul');
         
-        menuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+        if(menuBtn) {
+            menuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
 
-        // إغلاق القائمة عند الضغط على أي رابط
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
+                if(navMenu) navMenu.classList.remove('active');
             });
         });
+
+        // WhatsApp Form Submission Logic
+        const form = document.getElementById('whatsappForm');
+        const phoneNumber = '201092888626'; // رقم واتساب المستهدف (بدون علامة + أو صفر في البداية للرقم الدولي)
+
+        if(form) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // منع إعادة تحميل الصفحة
+
+                // 1. جلب القيم من الحقول
+                const name = document.getElementById('fullName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const messageDetail = document.getElementById('message').value.trim();
+
+                // 2. التحقق من صحة الحقول
+                if(!name || !email || !messageDetail) {
+                    alert('يرجى ملء جميع الحقول قبل الإرسال.');
+                    return;
+                }
+
+                if(!email.includes('@') || !email.includes('.')) {
+                    alert('يرجى إدخال بريد إلكتروني صحيح.');
+                    return;
+                }
+
+                // 3. بناء نص الرسالة
+                let whatsappMessage = `📢 *رسالة جديدة من موقع Web Stamp Pro* 📢%0A`;
+                whatsappMessage += `%0A👤 *الاسم:* ${name}%0A`;
+                whatsappMessage += `📧 *البريد الإلكتروني:* ${email}%0A`;
+                whatsappMessage += `%0A📝 *تفاصيل الطلب:* %0A${messageDetail}%0A`;
+                whatsappMessage += `%0A⏱️ *تم الإرسال:* ${new Date().toLocaleString('ar-EG')}`;
+
+                // 4. بناء رابط واتساب
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+                // 5. فتح الرابط في تبويب جديد (أو تحويل المستخدم إليه)
+                window.open(whatsappUrl, '_blank');
+                
+                // 6. (اختياري) تنبيه للمستخدم بأنه سيتم تحويله للواتساب
+                alert('سيتم توجيهك إلى تطبيق واتساب لإتمام الإرسال. يرجى الضغط على "إرسال" هناك.');
+                
+                // يمكنك تفريغ الحقول إذا أردت
+                // form.reset(); 
+            });
+        }
     </script>
 </body>
 </html>
